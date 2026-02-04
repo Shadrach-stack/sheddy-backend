@@ -1,0 +1,116 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "ubahobaah@gmail.com",
+      "password": "1234567890",
+      "fullName": "Amy Sutcliffe",
+      "verified": true
+    },
+    {
+      "id": 2,
+      "email": "obaahshadrach416@gmail.com",
+      "password": "123456",
+      "fullName": "Shadrach Obaah",
+      "verified": true
+    },
+    {
+      "id": 3,
+      "email": "oluedera@gmail.com",
+      "password": "123456",
+      "fullName": "John Doe",
+      "verified": true
+    }
+  ],
+  "wallets": [
+    {
+      "id": 1,
+      "userId": 1,
+      "balance": 157,
+      "accountNumber": "6261799786"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "balance": 0,
+      "accountNumber": "8433973664"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "balance": 0,
+      "accountNumber": "7965817441"
+    }
+  ],
+  "loans": [
+    {
+      "id": 1,
+      "userId": 1,
+      "loanId": 3,
+      "amount": 98,
+      "status": "Approved",
+      "creditedTo": "6261799786"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "loanId": 1,
+      "amount": 100,
+      "status": "Approved",
+      "creditedTo": "6261799786"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "userId": 1,
+      "type": "Loan Credit",
+      "amount": 98,
+      "date": "2026-02-04T08:47:00.036Z",
+      "status": "Completed"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "type": "Deposit",
+      "amount": 100,
+      "date": "2026-02-04T08:55:04.317Z",
+      "status": "Completed"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "type": "Loan Credit",
+      "amount": 100,
+      "date": "2026-02-04T08:56:16.153Z",
+      "status": "Completed"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "type": "Withdrawal",
+      "amount": 12,
+      "externalAccount": "23424252523452",
+      "date": "2026-02-04T09:02:29.090Z",
+      "status": "Completed"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "type": "Withdrawal",
+      "amount": 100,
+      "externalAccount": "1312313",
+      "date": "2026-02-04T09:02:42.953Z",
+      "status": "Completed"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "type": "Withdrawal",
+      "amount": 29,
+      "externalAccount": "1231323424345353",
+      "date": "2026-02-04T09:03:40.279Z",
+      "status": "Completed"
+    }
+  ]
+}
