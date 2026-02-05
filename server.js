@@ -12,6 +12,15 @@ const apiRoutes = require('./routes');
 app.use(cors());
 app.use(express.json());
 
+app.use(cors({
+  origin: [
+    'https://sheddy-frontend.vercel.app', // replace with your actual Vercel URL
+    'https://teal.buttercream-99c9e5.netlify.app', // optional: allow Netlify too
+    'http://localhost:5173' // optional: local dev
+  ],
+  credentials: true
+}));
+
 // Routes
 app.use('/api', apiRoutes);
 
