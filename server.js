@@ -1,35 +1,38 @@
+// server.js
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
-
-dotenv.config();
+const routes = require('./routes'); // your routes file
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-const apiRoutes = require('./routes');
-
-app.use(cors());
-app.use(express.json());
+// --- CORS configuration ---
+const allowedOrigins = [
+  'https://sheddy-frontend.vercel.app',       // your Vercel frontend URL
+  'https://teal.buttercream-99c9e5.netlify.app', // your Netlify frontend URL
+  'http://localhost:5173'                     // optional: local frontend dev
+];
 
 app.use(cors({
-  origin: [
-    'https://sheddy-frontend.vercel.app', // replace with your actual Vercel URL
-    'https://teal.buttercream-99c9e5.netlify.app', // optional: allow Netlify too
-    'http://localhost:5173' // optional: local dev
-  ],
+  origin: function(origin, callback) {
+    // allow requests with no origin (like Postman)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
 
-// Routes
-app.use('/api', apiRoutes);
+// --- Middleware ---
+app.use(express.json());
 
-// Basic Route
-app.get('/', (req, res) => {
-  res.send('Loan App Backend is running');
-});
+// --- Routes ---
+app.use('/api', routes);
 
-// Start Server
+// --- Start server ---
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
